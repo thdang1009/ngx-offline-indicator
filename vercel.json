@@ -5,19 +5,23 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/demo-app",
+        "distDir": "dist/demo-app/browser",
         "buildCommand": "npm run vercel-build"
       }
     }
   ],
   "routes": [
     {
-      "src": "/(assets|favicon.ico)/(.*)",
-      "dest": "/dist/demo-app/$1/$2"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/demo-app/index.html"
+      "dest": "/index.html"
     }
   ]
 }
