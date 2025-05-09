@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:demo": "ng build demo-app"
+    "build:demo": "ng build demo-app",
+    "vercel-build": "node ./vercel-build.js"
   },
   "private": true,
   "dependencies": {

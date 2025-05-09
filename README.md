@@ -101,3 +101,15 @@ To deploy the demo app to Vercel, follow these steps:
    ```
    vercel --prod
    ```
+
+### Troubleshooting Deployment
+
+If you encounter build issues during deployment:
+
+1. The deployment uses a custom build script (`vercel-build.js`) to:
+   - First build the library (`ngx-offline-indicator`)
+   - Then build the demo app that depends on the library
+
+2. If you see errors about missing dependencies, try adding them to the root `package.json`.
+
+3. For path resolution issues, check the `paths` configuration in `projects/demo-app/tsconfig.app.json`.

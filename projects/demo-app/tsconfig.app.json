@@ -7,15 +7,15 @@
     "types": [],
     "paths": {
       "ngx-offline-indicator": [
-        "../../dist/ngx-offline-indicator",
-        "../../projects/ngx-offline-indicator/src/public-api.ts"
+        "../../dist/ngx-offline-indicator"
       ]
     }
   },
-  "files": [
-    "src/main.ts"
-  ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
   ]
 }
