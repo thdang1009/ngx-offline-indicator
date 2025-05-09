@@ -5,7 +5,7 @@
   "author": "Your Name",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/ngx-offline-indicator"
+    "url": "https://github.com/thdang1009/ngx-offline-indicator"
   },
   "keywords": [
     "angular",
@@ -18,9 +18,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/ngx-offline-indicator/issues"
+    "url": "https://github.com/thdang1009/ngx-offline-indicator/issues"
   },
-  "homepage": "https://github.com/yourusername/ngx-offline-indicator",
+  "homepage": "https://github.com/thdang1009/ngx-offline-indicator",
   "peerDependencies": {
     "@angular/common": "^18.0.0",
     "@angular/core": "^18.0.0"

@@ -1,27 +1,64 @@
-# NgxOfflineIndicatorWorkspace
+# ngx-offline-indicator Workspace
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This is the development workspace for the `ngx-offline-indicator` Angular library.
 
-## Development server
+## What is ngx-offline-indicator?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+`ngx-offline-indicator` is an Angular library designed to provide developers with a simple and customizable way to inform users about their internet connection status within their Angular applications. This library improves the user experience by providing timely feedback when the application goes offline and offering mechanisms for handling offline scenarios.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Automatic online/offline detection
+- Multiple indicator types (banner, floating, status text)
+- Customizable positioning and appearance
+- Event hooks for online/offline state changes
+- Minimal performance impact
+- Easy integration with Angular applications
 
-## Build
+## Repository Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **projects/ngx-offline-indicator/** - The library source code
+- **dist/ngx-offline-indicator/** - The built library (after running build command)
+- **PUBLISHING.md** - Detailed instructions for publishing to npm
+- **USAGE.md** - Comprehensive usage guide and examples
 
-## Running unit tests
+## Development
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Building the library
 
-## Running end-to-end tests
+```bash
+npx ng build ngx-offline-indicator
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Publishing to npm
 
-## Further help
+1. Build the library: `npx ng build ngx-offline-indicator`
+2. Navigate to the dist folder: `cd dist/ngx-offline-indicator`
+3. Publish to npm: `npm publish`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+See **PUBLISHING.md** for detailed publishing instructions.
+
+## Usage
+
+For detailed usage examples and API documentation, see **USAGE.md**.
+
+### Basic Usage
+
+```typescript
+import { NgxOfflineIndicatorComponent } from 'ngx-offline-indicator';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, NgxOfflineIndicatorComponent],
+  template: `
+    <ngx-offline-indicator></ngx-offline-indicator>
+    <h1>My App</h1>
+  `,
+})
+export class AppComponent {}
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

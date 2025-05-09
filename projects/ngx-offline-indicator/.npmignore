@@ -1,0 +1,18 @@
+# Source files
+/src/**/*.spec.ts
+/src/test.ts
+
+# Configuration files
+/tsconfig.*.json
+/karma.conf.js
+/.angular-cli.json
+/.vscode
+/.idea
+
+# Build artifacts
+/coverage
+/.nyc_output
+
+# Git files
+/.git
+/.gitignore
