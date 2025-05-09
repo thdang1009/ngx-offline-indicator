@@ -1,0 +1,170 @@
+/* App component styles */
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #444;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.status-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 24px;
+  margin-bottom: 10px;
+}
+
+.status-indicator.online {
+  background-color: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+}
+
+.status-indicator.offline {
+  background-color: rgba(255, 77, 79, 0.1);
+  color: #ff4d4f;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.online .status-dot {
+  background-color: #52c41a;
+  box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.2);
+}
+
+.offline .status-dot {
+  background-color: #ff4d4f;
+  box-shadow: 0 0 0 4px rgba(255, 77, 79, 0.2);
+}
+
+.demo-controls {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+.control-group > label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+.control-group input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.control-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.control-group.checkbox input {
+  margin-right: 8px;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.test-btn {
+  background-color: #ff4d4f;
+  color: white;
+  min-width: 180px;
+}
+
+.test-btn:hover {
+  background-color: #ff7875;
+}
+
+.usage-example {
+  margin-bottom: 30px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 768px) {
+  .radio-group {
+    flex-direction: column;
+  }
+}

@@ -1,122 +1,141 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgxOfflineIndicatorComponent, OfflineIndicatorConfig, IndicatorType, IndicatorPosition } from 'ngx-offline-indicator';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
-
-import {
-  NgxOfflineIndicatorComponent,
-  NgxOfflineIndicatorService,
-  IndicatorType,
-  IndicatorPosition,
-  OfflineIndicatorConfig
-} from 'ngx-offline-indicator';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    CommonModule,
-    FormsModule,
-    NgxOfflineIndicatorComponent
-  ],
+  imports: [CommonModule, RouterOutlet, NgxOfflineIndicatorComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'ngx-offline-indicator Demo';
-  isOnline = true;
+  title = 'demo-app';
+  isOnline = navigator.onLine;
+  simulatingOffline = false;
+  showTestIndicator = false;
 
-  // Make enum values available to template
+  // For template access to enum values
   indicatorTypes = IndicatorType;
   indicatorPositions = IndicatorPosition;
 
-  // Configuration for the main indicator
-  config: OfflineIndicatorConfig = {
+  // Main configuration used by the indicator
+  mainConfig: OfflineIndicatorConfig = {
     type: IndicatorType.BANNER,
     position: IndicatorPosition.TOP,
-    offlineText: 'You are currently offline. Some features may not work.',
-    onlineText: 'Connection restored!',
     theme: 'light',
+    offlineText: 'You are offline. Some features may not be available.',
+    onlineText: 'Your connection has been restored.',
     showIcons: true,
     showOnlineIndicator: true,
-    onlineIndicatorDuration: 3000,
-    zIndex: 1000
   };
 
-  // Configuration for the test indicator
-  testConfig: OfflineIndicatorConfig = { ...this.config };
-  showTestIndicator = false;
-  simulatingOffline = false;
+  // Config for template binding - this is the one we modify in the UI
+  config: OfflineIndicatorConfig = { ...this.mainConfig };
 
-  private subscription?: Subscription;
+  // Test instance configuration
+  testConfig: OfflineIndicatorConfig = {
+    type: IndicatorType.FLOATING,
+    position: IndicatorPosition.BOTTOM_RIGHT,
+    theme: 'dark',
+    offlineText: 'Test Indicator: Offline',
+    onlineText: 'Test Indicator: Back Online',
+    showIcons: true,
+    showOnlineIndicator: true,
+  };
 
-  // Sample usage code for display
+  // Sample code to display in the documentation
   usageExample = `
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NgxOfflineIndicatorComponent, IndicatorType, IndicatorPosition } from 'ngx-offline-indicator';
+// In your component
+import { NgxOfflineIndicatorComponent, OfflineIndicatorConfig, IndicatorType, IndicatorPosition } from 'ngx-offline-indicator';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-your-component',
   standalone: true,
-  imports: [CommonModule, NgxOfflineIndicatorComponent],
+  imports: [NgxOfflineIndicatorComponent],
   template: \`
-    <ngx-offline-indicator [config]="{
-      type: IndicatorType.BANNER,
-      position: IndicatorPosition.TOP,
-      offlineText: 'You are currently offline',
-      theme: 'light'
-    }"></ngx-offline-indicator>
-
-    <main>
-      <!-- Your app content here -->
-    </main>
+    <ngx-offline-indicator [config]="indicatorConfig"></ngx-offline-indicator>
   \`
 })
-export class AppComponent {
-  // Make enum values available to template
-  IndicatorType = IndicatorType;
-  IndicatorPosition = IndicatorPosition;
+export class YourComponent {
+  indicatorConfig: OfflineIndicatorConfig = {
+    type: IndicatorType.BANNER,
+    position: IndicatorPosition.TOP,
+    theme: 'light',
+    offlineText: 'You are offline. Some features may not be available.',
+    onlineText: 'Your connection has been restored.',
+    showIcons: true,
+    showOnlineIndicator: true
+  };
 }`;
 
-  constructor(private offlineService: NgxOfflineIndicatorService) {}
-
-  ngOnInit(): void {
-    // Subscribe to network status changes
-    this.subscription = this.offlineService.getOnlineStatus().subscribe(
-      isOnline => {
-        this.isOnline = isOnline;
-      }
-    );
+  ngOnInit() {
+    window.addEventListener('online', this.handleNetworkChange.bind(this));
+    window.addEventListener('offline', this.handleNetworkChange.bind(this));
   }
 
-  ngOnDestroy(): void {
-    // Clean up subscription
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+  ngOnDestroy() {
+    window.removeEventListener('online', this.handleNetworkChange.bind(this));
+    window.removeEventListener('offline', this.handleNetworkChange.bind(this));
   }
 
-  // Apply the custom configuration to the test indicator
-  applyConfig(): void {
-    this.testConfig = { ...this.config };
-    this.showTestIndicator = true;
-  }
-
-  // Toggle offline simulation
-  toggleOfflineSimulation(): void {
-    this.simulatingOffline = !this.simulatingOffline;
-
-    // In a real app, you'd use service workers or other methods to simulate offline
-    // Here we're just toggling a visual change for demo purposes
-    if (this.simulatingOffline) {
-      // This doesn't actually change the browser's online status,
-      // but demonstrates what the component would show
-      this.isOnline = false;
-    } else {
+  handleNetworkChange() {
+    if (!this.simulatingOffline) {
       this.isOnline = navigator.onLine;
     }
+  }
+
+  toggleOfflineSimulation() {
+    this.simulatingOffline = !this.simulatingOffline;
+    this.isOnline = this.simulatingOffline ? false : navigator.onLine;
+  }
+
+  toggleTestIndicator() {
+    this.showTestIndicator = !this.showTestIndicator;
+  }
+
+  // Methods to update configuration
+  updateOfflineText(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.config.offlineText = value;
+    this.updateMainConfig();
+  }
+
+  updateOnlineText(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.config.onlineText = value;
+    this.updateMainConfig();
+  }
+
+  toggleShowIcons(event: Event): void {
+    this.config.showIcons = (event.target as HTMLInputElement).checked;
+    this.updateMainConfig();
+  }
+
+  toggleShowOnlineIndicator(event: Event): void {
+    this.config.showOnlineIndicator = (event.target as HTMLInputElement).checked;
+    this.updateMainConfig();
+  }
+
+  // Methods to update configuration settings
+  setIndicatorType(type: IndicatorType): void {
+    this.config.type = type;
+    this.updateMainConfig();
+  }
+
+  setIndicatorPosition(position: IndicatorPosition): void {
+    this.config.position = position;
+    this.updateMainConfig();
+  }
+
+  setTheme(theme: 'light' | 'dark'): void {
+    this.config.theme = theme;
+    this.updateMainConfig();
+  }
+
+  // Update the main configuration from the UI config
+  private updateMainConfig(): void {
+    this.mainConfig = { ...this.config };
   }
 }

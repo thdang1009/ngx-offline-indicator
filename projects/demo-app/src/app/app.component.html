@@ -1,185 +1,5 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-
 <!-- Demo app for ngx-offline-indicator -->
-<ngx-offline-indicator [config]="config"></ngx-offline-indicator>
+<ngx-offline-indicator [config]="mainConfig"></ngx-offline-indicator>
 
 <div class="container">
   <header>
@@ -200,58 +20,37 @@
     <h2>Test Different Configurations</h2>
 
     <div class="control-group">
-      <label>Indicator Type:</label>
-      <select [(ngModel)]="config.type">
-        <option [ngValue]="indicatorTypes.BANNER">Banner</option>
-        <option [ngValue]="indicatorTypes.FLOATING">Floating</option>
-        <option [ngValue]="indicatorTypes.STATUS_TEXT">Status Text</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label>Position:</label>
-      <select [(ngModel)]="config.position">
-        <option [ngValue]="indicatorPositions.TOP">Top</option>
-        <option [ngValue]="indicatorPositions.BOTTOM">Bottom</option>
-        <option [ngValue]="indicatorPositions.TOP_LEFT">Top Left</option>
-        <option [ngValue]="indicatorPositions.TOP_RIGHT">Top Right</option>
-        <option [ngValue]="indicatorPositions.BOTTOM_LEFT">Bottom Left</option>
-        <option [ngValue]="indicatorPositions.BOTTOM_RIGHT">Bottom Right</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label>Theme:</label>
-      <select [(ngModel)]="config.theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
-
-    <div class="control-group">
       <label>Offline Text:</label>
-      <input type="text" [(ngModel)]="config.offlineText">
+      <input type="text" [value]="config.offlineText"
+             (input)="updateOfflineText($event)">
     </div>
 
     <div class="control-group">
       <label>Online Text:</label>
-      <input type="text" [(ngModel)]="config.onlineText">
+      <input type="text" [value]="config.onlineText"
+             (input)="updateOnlineText($event)">
     </div>
 
     <div class="control-group checkbox">
-      <input type="checkbox" id="showIcons" [(ngModel)]="config.showIcons">
+      <input type="checkbox" id="showIcons" [checked]="config.showIcons"
+             (change)="toggleShowIcons($event)">
       <label for="showIcons">Show Icons</label>
     </div>
 
     <div class="control-group checkbox">
-      <input type="checkbox" id="showOnlineIndicator" [(ngModel)]="config.showOnlineIndicator">
+      <input type="checkbox" id="showOnlineIndicator" [checked]="config.showOnlineIndicator"
+             (change)="toggleShowOnlineIndicator($event)">
       <label for="showOnlineIndicator">Show Online Indicator</label>
     </div>
 
-    <button class="apply-btn" (click)="applyConfig()">Apply Configuration</button>
-    <button class="test-btn" (click)="toggleOfflineSimulation()">
-      {{ simulatingOffline ? 'Stop Simulating Offline' : 'Simulate Offline' }}
-    </button>
+    <div class="control-buttons">
+      <button class="test-btn" (click)="toggleTestIndicator()">
+        {{ showTestIndicator ? 'Hide Test Instance' : 'Show Test Instance' }}
+      </button>
+      <button class="test-btn" (click)="toggleOfflineSimulation()">
+        {{ simulatingOffline ? 'Stop Simulating Offline' : 'Simulate Offline' }}
+      </button>
+    </div>
   </section>
 
   <section class="usage-example">
@@ -270,156 +69,5 @@
   *ngIf="showTestIndicator"
   [config]="testConfig"
 ></ngx-offline-indicator>
-
-<style>
-  .container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-  }
-
-  h1 {
-    color: #333;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    color: #444;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-
-  .status-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-  .status-indicator {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 24px;
-    margin-bottom: 10px;
-  }
-
-  .status-indicator.online {
-    background-color: rgba(82, 196, 26, 0.1);
-    color: #52c41a;
-  }
-
-  .status-indicator.offline {
-    background-color: rgba(255, 77, 79, 0.1);
-    color: #ff4d4f;
-  }
-
-  .status-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-
-  .online .status-dot {
-    background-color: #52c41a;
-    box-shadow: 0 0 0 4px rgba(82, 196, 26, 0.2);
-  }
-
-  .offline .status-dot {
-    background-color: #ff4d4f;
-    box-shadow: 0 0 0 4px rgba(255, 77, 79, 0.2);
-  }
-
-  .demo-controls {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-  }
-
-  .control-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .control-group label {
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
-
-  .control-group select, .control-group input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-
-  .control-group.checkbox {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .control-group.checkbox input {
-    margin-right: 8px;
-  }
-
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s;
-  }
-
-  .apply-btn {
-    background-color: #1890ff;
-    color: white;
-  }
-
-  .apply-btn:hover {
-    background-color: #40a9ff;
-  }
-
-  .test-btn {
-    background-color: #ff4d4f;
-    color: white;
-  }
-
-  .test-btn:hover {
-    background-color: #ff7875;
-  }
-
-  .usage-example {
-    margin-bottom: 30px;
-  }
-
-  pre {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 4px;
-    overflow-x: auto;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  code {
-    font-family: 'Courier New', Courier, monospace;
-  }
-</style>
 
 <router-outlet></router-outlet>
