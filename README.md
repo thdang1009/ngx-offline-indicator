@@ -62,3 +62,42 @@ export class AppComponent {}
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Deploying to Vercel
+
+To deploy the demo app to Vercel, follow these steps:
+
+1. Install the Vercel CLI:
+   ```
+   npm install -g vercel
+   ```
+
+2. Make sure you're in the project root directory:
+   ```
+   cd ngx-offline-indicator-workspace
+   ```
+
+3. Login to Vercel:
+   ```
+   vercel login
+   ```
+
+4. Deploy the app:
+   ```
+   vercel
+   ```
+
+5. Follow the prompts from the Vercel CLI:
+   - Set up and deploy project? `Yes`
+   - Which scope to deploy to? `[Select your account]`
+   - Link to existing project? `No`
+   - Project name: `[Enter a name or accept the default]`
+   - Directory to deploy: `./`
+   - Override settings? `No`
+
+6. Once deployed, Vercel will provide a URL to access your demo app.
+
+7. For production deployment:
+   ```
+   vercel --prod
+   ```

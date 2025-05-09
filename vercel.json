@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/demo-app",
+        "buildCommand": "npm run build:demo"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(assets|favicon.ico)/(.*)",
+      "dest": "/dist/demo-app/$1/$2"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/demo-app/index.html"
+    }
+  ]
+}

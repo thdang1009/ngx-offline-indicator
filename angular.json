@@ -67,7 +67,8 @@
             "styles": [
               "projects/demo-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
