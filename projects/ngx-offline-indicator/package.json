@@ -1,0 +1,32 @@
+{
+  "name": "ngx-offline-indicator",
+  "version": "1.0.0",
+  "description": "Angular library for displaying online/offline status indicators",
+  "author": "Your Name",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ngx-offline-indicator"
+  },
+  "keywords": [
+    "angular",
+    "offline",
+    "online",
+    "indicator",
+    "connectivity",
+    "network",
+    "status"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/ngx-offline-indicator/issues"
+  },
+  "homepage": "https://github.com/yourusername/ngx-offline-indicator",
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
