@@ -18,7 +18,7 @@ A lightweight, customizable Angular library for displaying online/offline status
 
 ## Demo
 
-(Add demo link when available)
+[https://ngx-offline-indicator.vercel.app/](https://ngx-offline-indicator.vercel.app/)
 
 ## Installation
 
