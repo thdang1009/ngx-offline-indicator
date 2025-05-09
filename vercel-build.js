@@ -27,6 +27,27 @@ if (!fs.existsSync('dist')) {
 
 // 3. Build the demo app
 console.log('Building demo application...');
-runCommand('npx ng build demo-app');
+runCommand('npx ng build demo-app --configuration production');
+
+// 4. Copy _redirects file to the output directory
+console.log('Ensuring routing works properly...');
+if (!fs.existsSync('dist/demo-app/browser/_redirects')) {
+  fs.writeFileSync('dist/demo-app/browser/_redirects', '/* /index.html 200');
+  console.log('Created _redirects file for proper routing');
+}
+
+// 5. Create a simple vercel.json in the output directory
+const vercelConfig = {
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+};
+
+fs.writeFileSync(
+  'dist/demo-app/browser/vercel.json',
+  JSON.stringify(vercelConfig, null, 2)
+);
+console.log('Created vercel.json in the output directory');
 
 console.log('Build completed successfully!');

@@ -62,6 +62,11 @@
               {
                 "glob": "**/*",
                 "input": "projects/demo-app/public"
+              },
+              {
+                "glob": "_redirects",
+                "input": "projects/demo-app/src",
+                "output": "/"
               }
             ],
             "styles": [
