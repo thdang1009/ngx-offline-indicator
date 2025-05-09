@@ -2,7 +2,7 @@
   "name": "ngx-offline-indicator",
   "version": "1.0.0",
   "description": "Angular library for displaying online/offline status indicators",
-  "author": "Your Name",
+  "author": "thdang1009",
   "repository": {
     "type": "git",
     "url": "https://github.com/thdang1009/ngx-offline-indicator"

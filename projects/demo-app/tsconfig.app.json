@@ -4,7 +4,13 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "ngx-offline-indicator": [
+        "../../dist/ngx-offline-indicator",
+        "../../projects/ngx-offline-indicator/src/public-api.ts"
+      ]
+    }
   },
   "files": [
     "src/main.ts"

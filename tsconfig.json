@@ -13,7 +13,8 @@
     "isolatedModules": true,
     "paths": {
       "ngx-offline-indicator": [
-        "./dist/ngx-offline-indicator"
+        "./dist/ngx-offline-indicator",
+        "./projects/ngx-offline-indicator/src/public-api.ts"
       ]
     },
     "esModuleInterop": true,
