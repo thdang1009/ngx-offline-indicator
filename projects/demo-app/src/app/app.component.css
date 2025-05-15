@@ -25,6 +25,12 @@ h2 {
   margin-bottom: 20px;
 }
 
+h3 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
 .status-section {
   background-color: #f9f9f9;
   padding: 20px;
@@ -68,6 +74,37 @@ h2 {
   box-shadow: 0 0 0 4px rgba(255, 77, 79, 0.2);
 }
 
+.event-log {
+  margin-top: 25px;
+  text-align: left;
+  border-top: 1px dashed #ddd;
+  padding-top: 20px;
+}
+
+.log-container {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  height: 120px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.log-entry {
+  margin: 5px 0;
+  padding: 5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.log-empty {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .demo-controls {
   background-color: #f9f9f9;
   padding: 20px;
@@ -103,7 +140,8 @@ h2 {
   margin-right: 5px;
 }
 
-.control-group input[type="text"] {
+.control-group input[type="text"],
+.control-group input[type="number"] {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #ddd;
@@ -124,6 +162,7 @@ h2 {
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 button {
@@ -146,6 +185,16 @@ button {
   background-color: #ff7875;
 }
 
+.secondary-btn {
+  background-color: #1890ff;
+  color: white;
+  min-width: 160px;
+}
+
+.secondary-btn:hover {
+  background-color: #40a9ff;
+}
+
 .usage-example {
   margin-bottom: 30px;
 }
@@ -157,6 +206,7 @@ pre {
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 code {
@@ -166,5 +216,13 @@ code {
 @media (max-width: 768px) {
   .radio-group {
     flex-direction: column;
+  }
+
+  .control-buttons {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
   }
 }

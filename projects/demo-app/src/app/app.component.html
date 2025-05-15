@@ -14,10 +14,81 @@
       <span class="status-text">{{ isOnline ? 'Online' : 'Offline' }}</span>
     </div>
     <p class="status-info">{{ isOnline ? 'Your application is connected to the internet.' : 'Your application is currently offline.' }}</p>
+
+    <div class="event-log">
+      <h3>Event Log</h3>
+      <div class="log-container">
+        <p *ngFor="let log of eventLogs" class="log-entry">{{ log }}</p>
+        <p *ngIf="eventLogs.length === 0" class="log-empty">No events logged yet</p>
+      </div>
+      <button class="secondary-btn" (click)="clearEventLogs()">Clear Log</button>
+    </div>
   </section>
 
   <section class="demo-controls">
     <h2>Test Different Configurations</h2>
+
+    <div class="control-group">
+      <label>Indicator Type:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="type" [checked]="config.type === indicatorTypes.BANNER"
+                 (change)="setIndicatorType(indicatorTypes.BANNER)"> Banner
+        </label>
+        <label>
+          <input type="radio" name="type" [checked]="config.type === indicatorTypes.FLOATING"
+                 (change)="setIndicatorType(indicatorTypes.FLOATING)"> Floating
+        </label>
+        <label>
+          <input type="radio" name="type" [checked]="config.type === indicatorTypes.STATUS_TEXT"
+                 (change)="setIndicatorType(indicatorTypes.STATUS_TEXT)"> Status Text
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Position:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.TOP"
+                 (change)="setIndicatorPosition(indicatorPositions.TOP)"> Top
+        </label>
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.BOTTOM"
+                 (change)="setIndicatorPosition(indicatorPositions.BOTTOM)"> Bottom
+        </label>
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.TOP_LEFT"
+                 (change)="setIndicatorPosition(indicatorPositions.TOP_LEFT)"> Top Left
+        </label>
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.TOP_RIGHT"
+                 (change)="setIndicatorPosition(indicatorPositions.TOP_RIGHT)"> Top Right
+        </label>
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.BOTTOM_LEFT"
+                 (change)="setIndicatorPosition(indicatorPositions.BOTTOM_LEFT)"> Bottom Left
+        </label>
+        <label>
+          <input type="radio" name="position" [checked]="config.position === indicatorPositions.BOTTOM_RIGHT"
+                 (change)="setIndicatorPosition(indicatorPositions.BOTTOM_RIGHT)"> Bottom Right
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Theme:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="theme" [checked]="config.theme === 'light'"
+                 (change)="setTheme('light')"> Light
+        </label>
+        <label>
+          <input type="radio" name="theme" [checked]="config.theme === 'dark'"
+                 (change)="setTheme('dark')"> Dark
+        </label>
+      </div>
+    </div>
 
     <div class="control-group">
       <label>Offline Text:</label>
@@ -29,6 +100,18 @@
       <label>Online Text:</label>
       <input type="text" [value]="config.onlineText"
              (input)="updateOnlineText($event)">
+    </div>
+
+    <div class="control-group">
+      <label>Online Indicator Duration (ms):</label>
+      <input type="number" [value]="config.onlineIndicatorDuration"
+             (input)="updateDuration($event)" min="0">
+    </div>
+
+    <div class="control-group">
+      <label>Z-Index:</label>
+      <input type="number" [value]="config.zIndex"
+             (input)="updateZIndex($event)">
     </div>
 
     <div class="control-group checkbox">
@@ -43,6 +126,7 @@
       <label for="showOnlineIndicator">Show Online Indicator</label>
     </div>
 
+    <h3>Testing Controls</h3>
     <div class="control-buttons">
       <button class="test-btn" (click)="toggleTestIndicator()">
         {{ showTestIndicator ? 'Hide Test Instance' : 'Show Test Instance' }}
@@ -51,11 +135,25 @@
         {{ simulatingOffline ? 'Stop Simulating Offline' : 'Simulate Offline' }}
       </button>
     </div>
+
+    <h3>Manual Event Triggers</h3>
+    <div class="control-buttons">
+      <button class="secondary-btn" (click)="triggerOfflineEvent()">
+        Trigger Offline Event
+      </button>
+      <button class="secondary-btn" (click)="triggerOnlineEvent()">
+        Trigger Online Event
+      </button>
+    </div>
   </section>
 
   <section class="usage-example">
     <h2>Usage Example</h2>
+    <h3>Basic Component Usage</h3>
     <pre><code>{{usageExample}}</code></pre>
+
+    <h3>Event Subscription Example</h3>
+    <pre><code>{{eventListenerExample}}</code></pre>
   </section>
 
   <section class="documentation">
